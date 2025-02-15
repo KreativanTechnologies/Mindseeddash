@@ -1,7 +1,7 @@
 import Layout from "../layouts/Layout";
 
-const Booking = () => {
+const Users = () => {
   return <Layout></Layout>;
 };
 
-export default Booking;
+export default Users;

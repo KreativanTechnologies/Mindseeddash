@@ -1,28 +1,43 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 
 const Layout = ({ children }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+  const [isOpen, setIsOpen] = useState(false); // Sidebar Modal State
 
   return (
-    <div className="h-screen flex   flex-col md:flex-row">
-      {/* Sidebar */}
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+    <div className="h-screen relative">
+      {/* Background Video */}
+      <div className="w-full h-full absolute -z-10">
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/BgVideo.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       {/* Main content area */}
-      <div className="flex-1 flex flex-col h-full">
+      <div className="flex flex-col h-full z-10">
         {/* Header */}
-        <Header toggleSidebar={toggleSidebar} />
+        <Header setIsOpen={setIsOpen} /> {/* Pass setIsOpen to Header */}
+        <div className="w-full h-full flex flex-col md:flex-row">
+          {/* Sidebar for Desktop */}
+          <div className="w-[23%] hidden md:block h-full overflow-hidden">
+            <Sidebar />
+          </div>
 
-        {/* Dynamic Content */}
-        <main className="flex-1 bg-gray-100 p-6 overflow-y-auto scrollbar-hide z-[9999]">
-          {children}
-        </main>
+          {/* Sidebar Modal for Mobile */}
+          <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+
+          {/* Dynamic Content */}
+          <main className="w-full h-full rounded-md bg-gray-300 p-6">
+            {children}
+          </main>
+        </div>
       </div>
     </div>
   );

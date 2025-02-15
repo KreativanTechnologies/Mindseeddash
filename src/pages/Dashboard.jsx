@@ -1,11 +1,7 @@
-import React from 'react'
 import Layout from "../layouts/Layout";
 
-const Customers = () => {
-  return (
-<Layout>
+const Dashborad = () => {
+  return <Layout></Layout>
+};
 
-</Layout>  )
-}
-
-export default Customers
+export default Dashborad
