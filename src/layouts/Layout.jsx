@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
           <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
 
           {/* Dynamic Content */}
-          <main className="w-full h-full rounded-md bg-gray-300 p-6">
+          <main className="w-full h-full rounded-md bg-slate-900 p-6">
             {children}
           </main>
         </div>

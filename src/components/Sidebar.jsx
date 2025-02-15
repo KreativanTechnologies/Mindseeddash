@@ -2,11 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { FiMenu, FiUsers, FiCreditCard, FiX } from "react-icons/fi";
 
 const navLinks = [
-  { id: 1, name: "Dashboard Insights", path: "/dashboard", icon: <FiMenu /> },
+  { id: 1, name: "Dashboard", path: "/dashboard", icon: <FiMenu /> },
   { id: 2, name: "Users", path: "/dashboard/Users", icon: <FiUsers /> },
   {
     id: 3,
-    name: "Transactions/Accounting",
+    name: "Transactions",
     path: "/dashboard/transactions",
     icon: <FiCreditCard />,
   },
